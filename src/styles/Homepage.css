@@ -6,6 +6,7 @@ Text: #282828
 */
 .homepage {
   height:100vh;
+  height:calc(var(--vh, 1vh) * 100);
   width:100vw;
   background-size: cover;
   background-position: center;

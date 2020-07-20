@@ -9,6 +9,15 @@ import '../styles/Form.css';
 
 function Form() {
 
+  // Mobile viewport hack to avoid address bars.
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
+
   // Choice sent to News components in order to request from API by category.
   const [choice, setChoice] = useState("");
   // Ternaries used to hide options onClick & display loading bar. 
@@ -35,13 +44,13 @@ function Form() {
   return (
     <div>
       {!hasNews ? 
-          <div className="homepage dark">
-          <div className="logo-content">
-            <h1 id="newshub" onClick={()=>console.log(choice)}>react-news</h1>
-            <FontAwesomeIcon id="logo" icon={faNewspaper}/>
-          </div>
-          {/* If hasNews is false, render the form. Else, render the news component. */}
-          {shown ? <Loading /> : null}
+        <div className="homepage dark">
+        <div className="logo-content">
+          <h1 id="newshub" onClick={()=>console.log(choice)}>react-news</h1>
+          <FontAwesomeIcon id="logo" icon={faNewspaper}/>
+        </div>
+        {/* If hasNews is false, render the form. Else, render the news component. */}
+        {shown ? <Loading /> : null}
         <div className={`form-content ${hidden ? "hidden" : ""}`}>
           <Animated animationIn="fadeIn" animationInDelay={200} animationInDuration={800} isVisible={true}>
             <p className="cta">What would you like to read about today?</p>

@@ -6,6 +6,16 @@ import { Animated } from 'react-animated-css';
 import '../styles/Homepage.css';
 
 function Homepage() {
+
+  // Mobile viewport hack to avoid address bars.
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
+
   return (
     <div className="homepage">
       <div className="logo-content">
