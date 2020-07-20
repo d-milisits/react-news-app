@@ -17,7 +17,7 @@ function News({choice, setHasNews, setHidden}) {
 
   async function fetchFromAPI() {
     let newsArray = [];
-    let url = `http://newsapi.org/v2/top-headlines?country=us&category=${choice}&apiKey=70324df6a5c54d618595f1b04b00d1d2`;
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${choice}&apiKey=70324df6a5c54d618595f1b04b00d1d2`;
     let response = await fetch(url);
     const json = await response.json();
     console.log(json);
