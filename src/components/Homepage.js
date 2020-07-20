@@ -20,7 +20,7 @@ function Homepage() {
             </Animated>
           </div>
           <Animated animationIn="fadeInUp" animationInDelay={500} animationInDuration={600} isVisible={true}>
-            <p>Daily U.S. news at the tips of your fingers. Click below to begin reading and find our more about your favorite topics.</p>
+            <p>Daily U.S. news at the tips of your fingers. Click below to begin reading and find our more about your favorite topics!</p>
             <Link to="/form">read now</Link>          
           </Animated>
         </div>
