@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Empty from '../components/Empty';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons'
+import noImage from '../styles/Capture.PNG'
 import '../styles/Homepage.css';
 import '../styles/News.css'
 import { Animated } from 'react-animated-css';
@@ -36,7 +37,7 @@ function News({choice, setHasNews, setHidden}) {
   function fetchFromAPI() {
     // let newsArray = [];
     var url = 'https://api.currentsapi.services/v1/search?' +
-    'keywords=Amazon&language=en&' + 
+    'category=' + choice + '&language=en&' + 
     'apiKey=bdZPzQhiv2MTK7RGPs66sXhD6Q2fMnaRy5MODrhFDpmRsHof';
     var req = new Request(url);
     fetch(req)
@@ -75,7 +76,7 @@ function News({choice, setHasNews, setHidden}) {
           {/* <p><span>SOURCE</span>: {news[currentIndex]['author'] ?? "Unknown source"}</p> */}
           <p><span>PUBLISHED BY</span>: {news[currentIndex]['author'] ?? 'Unknown author'}</p>
         </div>
-        <div className="article-img" style={{backgroundImage:`url(${news[currentIndex]['image']})`}}/>
+        <div className="article-img" style={{backgroundImage:`url(${news[currentIndex]['image'] !== "None" ? news[currentIndex]['image'] : noImage})`}}/>
         <Animated animationIn="flipInX" animationInDelay={500} animationInDuration={1500} isVisible={true}>
           <div className="buttons">
             {currentIndex > 0 ? <p className="btn" onClick={()=>(setCurrentIndex(currentIndex-1))}>back</p> : null}
@@ -97,7 +98,12 @@ function News({choice, setHasNews, setHidden}) {
       </div>
     </div>
     ) :
-    <Empty />
+    <div className="news-box">
+      <div className="logo-content">
+        <h1 id="newshub">react-news</h1>
+        <FontAwesomeIcon id="logo" icon={faNewspaper}/>
+      </div>
+    </div>
   );
 }
 

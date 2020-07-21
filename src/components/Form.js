@@ -71,7 +71,7 @@ function Form() {
           <p className="chip" onClick={()=>chooseAndRender("sports")}>sports</p>
           </Animated>
           <Animated animationIn="flipInX" animationInDelay={950} animationInDuration={1000} isVisible={true}>
-          <p className="chip" onClick={()=>chooseAndRender("technology")}>technology</p>
+          <p className="chip" onClick={()=>chooseAndRender("programming")}>programming</p>
           </Animated>
         </div>
         </div>
